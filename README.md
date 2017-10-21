@@ -1,56 +1,40 @@
-# Bootcamp 2017 - #3
+# Bootcamp 2017 #3 - Java Database Connectivity
 
-Bootcamp 2017 #3, temen-temen akan mempelajari dari funamental sampai mahir membuat aplikasi berbasis web dengan Java dan membuat aplikasi mobile dengan Angular(from zero to hero),
-selain itu temen-temen juga akan dibekali dengan beberapa tools yang berguna untuk kebutuhan development seperti berikut:
+## JDBC
 
-## Development Environtment
+JDBC atau Java Database Connectivity adalah teknologi API untuk Java yang digunakan untuk menkomunikasikan dan memberikan fitur akses data ke database dari Java.
 
-- git & github (Version of control)
-- pencil (UI Mockup)
-- trello (Media Komunication)
-- heroku (Cloud Application Platform)
+## Object JDBC
 
-## Development Language
+### Connection Properties
 
-- Java Fundamental
-  - Apa itu JDK, JRE & JVM?
-  - Installasi JDK di Sistem Operation Windows dan Linux?
-  - Install text editor (Netbeans & IntelliJ IDEA)
-  - Say Hello Program & How to run Java Program
-  - Variables
-  - Datatypes
-  - Class
-  - Interfaces
-  - Package
-  - Structure Control
-    - Selection
-    - Loop
-  - Object Oritented Programming
-    - Inheritances
-    - Polymorphism
-    - Encapsulation
-  - Array & Element Collections
-    - List
-    - Map
-    - Set
-  - Automatic Testing (Unit Testing)
-- PostgreSQL
-  - Database Relational?
-  - SQL
-  - DDL (Data definition language)
-  - DML (Data manipulation language)
-  - TCL (Transaction control language)
-- Java Database Connectivity
-- Java Enterprices Edition
-  - Servlet
-  - JSP (Java Server Pages)
-- Spring Framework
-  - Dependency Injection Konsep
-  - Spring Container?
-  - Spring Web MVC
-  - Template engine Thymeleaf
-  - Spring Security
-- Angular
-  - Javascript
-  - Typescript
-  - Angular4
+- `java.sql.Connection`
+- `java.sql.DriverManager`
+- `java.sql.DataSource`
+
+### Processing query
+
+- `java.sql.Statement`
+- `java.sql.PreparedStatement`
+
+### Executing query
+
+- `executeQuery(sqlParam)`
+- `executeUpdate()`
+
+### Transaction Management
+
+- `connection.commit()`
+- `connection.rollback()`
+- `connection.rollback(savePoint)`
+- `connection.setAutoCommit(true/false);`
+
+### Batch Prosessing
+
+- `addBatch(preparedStatementParam);`
+- `executeBatch()`;
+
+### Handling Error
+
+- `java.sql.SQLException`
+- `Exception`
