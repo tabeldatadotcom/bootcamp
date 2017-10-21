@@ -1,56 +1,79 @@
-# Bootcamp 2017 - #3
+# Bootcamp 2017 #3 - Java Fundamental
 
-Bootcamp 2017 #3, temen-temen akan mempelajari dari funamental sampai mahir membuat aplikasi berbasis web dengan Java dan membuat aplikasi mobile dengan Angular(from zero to hero),
-selain itu temen-temen juga akan dibekali dengan beberapa tools yang berguna untuk kebutuhan development seperti berikut:
+## Java is OOP class based
 
-## Development Environtment
+Java adalah bahasa pemograman yang mewajibkan dibungkus dengan `class`, selain itu di Java adalah pre-compiled artinya semua `source code` java harus di compile dahulu sebelum di `run`. Java bahasa yang membedakan huruf besar dan kecil (case sensitive) ```sayHalo``` != ```SayHalo``` jadi berhati-hatilah!.
 
-- git & github (Version of control)
-- pencil (UI Mockup)
-- trello (Media Komunication)
-- heroku (Cloud Application Platform)
+## How to compile and run it
 
-## Development Language
+Tools untuk melakukan compile java ```javac``` contohnya seperti berikut
 
-- Java Fundamental
-  - Apa itu JDK, JRE & JVM?
-  - Installasi JDK di Sistem Operation Windows dan Linux?
-  - Install text editor (Netbeans & IntelliJ IDEA)
-  - Say Hello Program & How to run Java Program
-  - Variables
-  - Datatypes
-  - Class
-  - Interfaces
-  - Package
-  - Structure Control
-    - Selection
-    - Loop
-  - Object Oritented Programming
-    - Inheritances
-    - Polymorphism
-    - Encapsulation
-  - Array & Element Collections
-    - List
-    - Map
-    - Set
-  - Automatic Testing (Unit Testing)
-- PostgreSQL
-  - Database Relational?
-  - SQL
-  - DDL (Data definition language)
-  - DML (Data manipulation language)
-  - TCL (Transaction control language)
-- Java Database Connectivity
-- Java Enterprices Edition
-  - Servlet
-  - JSP (Java Server Pages)
-- Spring Framework
-  - Dependency Injection Konsep
-  - Spring Container?
-  - Spring Web MVC
-  - Template engine Thymeleaf
-  - Spring Security
-- Angular
-  - Javascript
-  - Typescript
-  - Angular4
+```sh
+javac path/java/src/File.java
+```
+
+Tools untuk menjalakan aplikasi java dengan perintah `java`
+
+```sh
+java -cp path/java/src package.location.File
+```
+
+## Variable
+
+Pada dasarnya semua bahasa pemograman memiliki fitur ini yaitu variable, variabel digunakan untuk menampung data yang memiliki lifecycle dalam memory komputer.
+
+## Tipe data
+
+Tipe data di Java, sama seperti pendahulunya yaitu `C` tetapi secara explisite dibadakan seperti tidak ada lagi `char[]` saat ini diganti dengan `java.lang.String`. tipe data di Java terdiri dari 
+
+### Primive data type
+
+- `int`
+- `float`
+- `boolean`
+- `double`
+- `char`
+
+### Modern
+
+- `Integer` digunakan untuk menyimpan bilangan bulat contoh `1`, `-2`, `-35` dan seterusnya.
+- `Float` digunakan untuk meyimpan bilangan pecahan contoh `0.25`, `-25.1` dan seterusnya.
+- `Double` sama dengan tipe data `Float` hanya dapat menampung lebih besar nilainya.
+- `Boolean` digunakan untuk menyimpan data `true` atau `false`
+- `Character` digunakan untuk menyimpan data character contoh `'A'`
+- `String`digunakan untuk mnyimpan data character dengan jumlah yang banyak contoh `"ABC"`
+
+## Class & Interface
+
+Class ....
+
+Interface ...
+
+## Struktur Kendali / Structure Controll
+
+Struktur kendali terdiri dari 2 yaitu percabangan dan perulangan seperti berikut:
+
+### Percabangan / Selection
+
+- ```if (el_1) {//statement} else if (el_2) {//statement} else {//statement}```
+- ```switch(param) case param_el : statement; break; default : statement;```
+
+### Perulangan / Looping
+
+- ```for(var; controls; iteration;){//statement}```
+- ```do{ //statement } while(control);```
+- ```while(contol){//statement}```
+
+## Object Oriented Programming
+
+- `extends` (Inheritances)
+- `override` & `overload` (Polymorphism)
+- `private` (Encapsulation)
+
+## Array / Element Collections
+
+- `java.util.Arrays`
+- `java.util.List`
+- `java.util.Map`
+- `java.util.Set`
+
