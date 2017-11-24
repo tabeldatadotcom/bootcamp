@@ -7,7 +7,7 @@ public class AplikasiUtama {
 		System.out.println(honda.getKeterangan());
 
 		Sepeda ontel = new Sepeda();
-		System.out.println(ontel.roda);
+		System.out.println(ontel.getRoda());
 		
 	}
 }

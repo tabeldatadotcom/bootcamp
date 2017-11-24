@@ -2,5 +2,9 @@ package oop.pewarisan;
 
 public class Mobil extends Sepeda{
 
-	String dashboard = "GoPRO";
+	private String dashboard = "GoPRO";
+
+	public String getDashboard(){ return this.dashboard; }
+
+	public void setDashboard(String val){ this.dashboard = val; }
 }
