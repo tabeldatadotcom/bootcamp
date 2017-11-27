@@ -1,0 +1,1 @@
+﻿select * from departments order by location_id, department_name desc;
