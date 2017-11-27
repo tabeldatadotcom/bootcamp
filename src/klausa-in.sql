@@ -1,0 +1,1 @@
+﻿select * from jobs where lower(job_id) in ('ad_pres', 'AD_ASST', 'IT_PROG');
