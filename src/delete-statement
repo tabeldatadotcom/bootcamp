@@ -1,0 +1,3 @@
+﻿delete from job_history 
+where 
+	employee_id in (102, 101, 200);

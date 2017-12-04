@@ -1,0 +1,7 @@
+﻿-- mengupdate beberapa kolom dengan kriteria tertentu
+update job_history set 
+	department_id = 60, 
+	end_date = now() 
+where job_id = 'IT_PROG' or employee_id = 201;
+
+select * from job_history where job_id = 'IT_PROG' or employee_id = 201;
