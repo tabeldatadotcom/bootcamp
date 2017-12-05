@@ -19,10 +19,10 @@ public class RestoApiApplication {
         
         Department department = new Department();
         department.setDepartmentId(1234);
-        department.setDepartmentName("Supervisor Banking");
-        department.setLocationId(1000);
+        department.setDepartmentName("Banking Online");
+        department.setLocationId(1100);
         
-        dao.saveDepartment(department);
+        dao.updateDepartment(department);
 //        List<Department> list = dao.fetchDataDepartments();
 //        list.forEach(d -> {
 //            System.out.println(d.toString());
