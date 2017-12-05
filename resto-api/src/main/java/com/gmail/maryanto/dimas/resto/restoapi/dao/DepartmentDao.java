@@ -7,9 +7,12 @@ package com.gmail.maryanto.dimas.resto.restoapi.dao;
 
 import com.gmail.maryanto.dimas.resto.restoapi.entity.Department;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLType;
 import java.sql.Statement;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
@@ -50,6 +53,39 @@ public class DepartmentDao {
         statement.close();
         koneksi.close();
         return list;
+    }
+    
+    public void saveDepartment(Department department) throws SQLException{        
+        String query = "insert into departments("
+                + " department_id, department_name, manager_id, location_id"
+                + ") values (?, ?, null, ?)";
+        Connection connection = ds.getConnection();
+        
+        PreparedStatement compiledStatement = connection.prepareStatement(query);
+        compiledStatement.setInt(1, department.getDepartmentId());
+        compiledStatement.setString(2, department.getDepartmentName());
+        compiledStatement.setInt(3, department.getLocationId());
+        
+        compiledStatement.executeUpdate();
+        compiledStatement.close();
+        connection.close();
+    }
+    
+    public void updateDepartment(Department department) throws SQLException{
+        String query = "update departments "
+                + " set department_name = ?, location_id = ? "
+                + "where department_id = ?";
+        Connection connection = ds.getConnection();
+        
+        PreparedStatement compiledStatement = connection.prepareStatement(query);
+        compiledStatement.setInt(3, department.getDepartmentId());
+        compiledStatement.setString(1, department.getDepartmentName());
+        compiledStatement.setInt(2, department.getLocationId());
+        
+        compiledStatement.executeUpdate();
+        compiledStatement.close();
+        connection.close();
+
     }
     
     

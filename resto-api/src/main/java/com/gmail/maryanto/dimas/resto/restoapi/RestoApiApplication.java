@@ -16,9 +16,16 @@ public class RestoApiApplication {
                 SpringApplication.run(RestoApiApplication.class, args);
         
         DepartmentDao dao = springContext.getBean(DepartmentDao.class);
-        List<Department> list = dao.fetchDataDepartments();
-        list.forEach(d -> {
-            System.out.println(d.toString());
-        });
+        
+        Department department = new Department();
+        department.setDepartmentId(1234);
+        department.setDepartmentName("Supervisor Banking");
+        department.setLocationId(1000);
+        
+        dao.saveDepartment(department);
+//        List<Department> list = dao.fetchDataDepartments();
+//        list.forEach(d -> {
+//            System.out.println(d.toString());
+//        });
     }
 }
