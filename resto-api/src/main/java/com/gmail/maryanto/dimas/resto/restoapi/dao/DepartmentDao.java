@@ -88,5 +88,18 @@ public class DepartmentDao {
 
     }
     
+    public void removeDepartment(Integer d) throws SQLException{
+        String query = "delete from departments where department_id = ?";
+         Connection connection = ds.getConnection();
+        
+        PreparedStatement compiledStatement = connection.prepareStatement(query);
+        compiledStatement.setInt(1, d);
+        
+        compiledStatement.executeUpdate();
+        compiledStatement.close();
+        connection.close();
+
+    }
+    
     
 }
