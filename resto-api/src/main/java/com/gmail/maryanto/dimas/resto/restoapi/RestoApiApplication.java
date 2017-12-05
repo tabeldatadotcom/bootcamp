@@ -17,22 +17,22 @@ public class RestoApiApplication {
         
         DepartmentDao dao = springContext.getBean(DepartmentDao.class);
         
-//        Department department = new Department();
-//        department.setDepartmentId(1234);
-//        department.setDepartmentName("Banking Online");
-//        department.setLocationId(1100);
-
-//          update data ke database
-//        dao.updateDepartment(department);
+        Department department = new Department();
+        department.setDepartmentId(1234);
+        department.setDepartmentName("Banking Online");
+        department.setLocationId(1100);
 
 //          tambah data ke database
-//        dao.saveDepartment(department);
+        dao.saveDepartment(department);
+
+//          update data ke database
+        dao.updateDepartment(department);
 
 //          menampilkan data dari database
-//        List<Department> list = dao.fetchDataDepartments();
-//        list.forEach(d -> {
-//            System.out.println(d.toString());
-//        });
+        List<Department> list = dao.fetchDataDepartments();
+        list.forEach(d -> {
+            System.out.println(d.toString());
+        });
 
         dao.removeDepartment(60);
     }
