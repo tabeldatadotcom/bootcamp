@@ -33,7 +33,10 @@ public class AplikasiKreditDao {
 
         Connection connection = ds.getConnection();
         connection.setAutoCommit(false);
-        PreparedStatement aplikasiStatement = connection.prepareStatement(saveAplikasi,Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement aplikasiStatement = connection.prepareStatement(
+                saveAplikasi,
+                Statement.RETURN_GENERATED_KEYS
+        );
 
         aplikasiStatement.setString(1, kredit.getNamaNasabah());
         aplikasiStatement.setInt(2, kredit.getTenor());
