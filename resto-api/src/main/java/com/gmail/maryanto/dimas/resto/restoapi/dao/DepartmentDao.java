@@ -25,11 +25,11 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class DepartmentDao {
-    
+
     @Autowired
     private DataSource ds;
-    
-    public List<Department> fetchDataDepartments() throws SQLException{
+
+    public List<Department> fetchDataDepartments() throws SQLException {
         List<Department> list = new ArrayList<>();
         Connection koneksi = ds.getConnection();
         String query = "select "
@@ -40,7 +40,7 @@ public class DepartmentDao {
                 + "from departments";
         Statement statement = koneksi.createStatement();
         ResultSet hasil = statement.executeQuery(query);
-        while(hasil.next()){
+        while (hasil.next()) {
             Department department = new Department();
             department.setDepartmentId(hasil.getInt("kode"));
             department.setDepartmentName(hasil.getString("nama"));
@@ -54,52 +54,88 @@ public class DepartmentDao {
         koneksi.close();
         return list;
     }
-    
-    public void saveDepartment(Department department) throws SQLException{        
+
+    public void saveDepartment(Department department) throws SQLException {
         String query = "insert into departments("
                 + " department_id, department_name, manager_id, location_id"
                 + ") values (?, ?, null, ?)";
         Connection connection = ds.getConnection();
-        
+        connection.setAutoCommit(false);
+
         PreparedStatement compiledStatement = connection.prepareStatement(query);
         compiledStatement.setInt(1, department.getDepartmentId());
         compiledStatement.setString(2, department.getDepartmentName());
         compiledStatement.setInt(3, department.getLocationId());
-        
+
         compiledStatement.executeUpdate();
         compiledStatement.close();
+
+        connection.commit();
         connection.close();
+
     }
-    
-    public void updateDepartment(Department department) throws SQLException{
+
+    public void saveDepartment(Department... departments) {
+        String query = "insert into departments("
+                + " department_id, department_name, manager_id, location_id"
+                + ") values (?, ?, null, ?)";
+        Connection connection = null;
+        try {
+            connection = ds.getConnection();
+            connection.setAutoCommit(false);
+
+            for (Department department : departments) {
+                PreparedStatement compiledStatement = connection.prepareStatement(query);
+                compiledStatement.setInt(1, department.getDepartmentId());
+                compiledStatement.setString(2, department.getDepartmentName());
+                compiledStatement.setInt(3, department.getLocationId());
+
+                compiledStatement.executeUpdate();
+                compiledStatement.close();
+            }
+            connection.commit();
+            connection.close();
+        } catch (SQLException sql) {
+            if (connection != null) {
+                try {
+                    connection.rollback();
+                } catch (SQLException sqle2) {
+                    sqle2.printStackTrace();
+                }
+            }
+            sql.printStackTrace();
+        }
+
+    }
+
+    public void updateDepartment(Department department) throws SQLException {
         String query = "update departments "
                 + " set department_name = ?, location_id = ? "
                 + "where department_id = ?";
         Connection connection = ds.getConnection();
-        
+
         PreparedStatement compiledStatement = connection.prepareStatement(query);
         compiledStatement.setInt(3, department.getDepartmentId());
         compiledStatement.setString(1, department.getDepartmentName());
         compiledStatement.setInt(2, department.getLocationId());
-        
+
         compiledStatement.executeUpdate();
         compiledStatement.close();
         connection.close();
 
     }
-    
-    public void removeDepartment(Integer d) throws SQLException{
+
+    public void removeDepartment(Integer d) throws SQLException {
         String query = "delete from departments where department_id = ?";
-         Connection connection = ds.getConnection();
-        
+        Connection connection = ds.getConnection();
+
         PreparedStatement compiledStatement = connection.prepareStatement(query);
         compiledStatement.setInt(1, d);
-        
+
         compiledStatement.executeUpdate();
         compiledStatement.close();
         connection.close();
 
     }
-    
-    
+
 }
