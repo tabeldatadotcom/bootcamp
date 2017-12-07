@@ -84,15 +84,17 @@ public class DepartmentDao {
             connection = ds.getConnection();
             connection.setAutoCommit(false);
 
+            PreparedStatement compiledStatement = connection.prepareStatement(query);
             for (Department department : departments) {
-                PreparedStatement compiledStatement = connection.prepareStatement(query);
                 compiledStatement.setInt(1, department.getDepartmentId());
                 compiledStatement.setString(2, department.getDepartmentName());
                 compiledStatement.setInt(3, department.getLocationId());
-
-                compiledStatement.executeUpdate();
-                compiledStatement.close();
+                compiledStatement.addBatch();
             }
+
+            compiledStatement.executeBatch();
+            compiledStatement.close();
+
             connection.commit();
             connection.close();
         } catch (SQLException sql) {
