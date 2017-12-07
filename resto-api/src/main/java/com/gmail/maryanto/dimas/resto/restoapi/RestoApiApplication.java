@@ -1,49 +1,43 @@
 package com.gmail.maryanto.dimas.resto.restoapi;
 
+import com.gmail.maryanto.dimas.resto.restoapi.dao.AplikasiKreditDao;
 import com.gmail.maryanto.dimas.resto.restoapi.dao.DepartmentDao;
+import com.gmail.maryanto.dimas.resto.restoapi.entity.AplikasiKredit;
 import com.gmail.maryanto.dimas.resto.restoapi.entity.Department;
+import com.gmail.maryanto.dimas.resto.restoapi.entity.JadwalBayar;
+import java.math.BigDecimal;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class RestoApiApplication {
 
     public static void main(String[] args) throws SQLException {
-        ApplicationContext springContext
-                = SpringApplication.run(RestoApiApplication.class, args);
+        ApplicationContext springContext = SpringApplication.run(RestoApiApplication.class, args);
+        AplikasiKreditDao dao = springContext.getBean(AplikasiKreditDao.class);
 
-        DepartmentDao dao = springContext.getBean(DepartmentDao.class);
+        AplikasiKredit kredit = new AplikasiKredit();
+        kredit.setNamaNasabah("Dimas Maryanto");
+        kredit.setTenor(12);
+        kredit.setPinjam(new BigDecimal("10000000"));
 
-        Department department = new Department();
-        department.setDepartmentId(1239);
-        department.setDepartmentName("Banking Online");
-        department.setLocationId(1100);
+        dao.save(
+                kredit,
+                Arrays.asList(
+                        new JadwalBayar(kredit, Date.valueOf("2017-03-20"), new BigDecimal(1000000)),
+                        new JadwalBayar(kredit, Date.valueOf("2017-04-20"), new BigDecimal(1000000)),
+                        new JadwalBayar(kredit, Date.valueOf("2017-05-20"), new BigDecimal(1000000)),
+                        new JadwalBayar(kredit, Date.valueOf("2017-06-20"), new BigDecimal(1000000)),
+                        new JadwalBayar(kredit, Date.valueOf("2017-07-20"), new BigDecimal(1000000)),
+                        new JadwalBayar(kredit, Date.valueOf("2017-08-20"), new BigDecimal(1000000)),
+                        new JadwalBayar(kredit, Date.valueOf("2017-09-20"), new BigDecimal(1000000))
+                ));
 
-        Department it = new Department();
-        it.setDepartmentId(1300);
-        it.setDepartmentName("IT");
-        it.setLocationId(1000);
-
-        Department it2 = new Department();
-        it2.setDepartmentId(1301);
-        it2.setDepartmentName("IT");
-        it2.setLocationId(1000);
-
-//          tambah data ke database
-        dao.saveDepartment(department, it, it2);
-
-//          update data ke database
-//        dao.updateDepartment(department);
-//          menampilkan data dari database
-//        List<Department> list = dao.fetchDataDepartments();
-//        list.forEach(d -> {
-//            System.out.println(d.toString());
-//        });
-//
-//        dao.removeDepartment(60);
     }
 }
