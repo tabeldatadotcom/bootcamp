@@ -31,13 +31,36 @@ console.log(getTheName);
 
 var anObject = {
     nama : "Dimas",
-    alamat: 'Jl.bukit indah no b8',
+    alamat: {
+        jalan: "jl.bukit indah",
+        rt: 18,
+        rw: 6,
+        kec: "cileuyi",
+        kota: "bandung"
+    },
     active: true
 }
 
 console.log(
     'nama saya adalah '+ anObject.nama + 
-    ', alamat rumahnya di '+ anObject.alamat
+    ', alamat rumahnya di '+ anObject.alamat.jalan
 );
 
+anObject.nama = "Dimas Maryanto"
+
+// memanggil object
 console.log(anObject);
+
+anObject.alamat.kota = "Kab. Bandung"
+
+anObject.alamat = {
+    jalan: "jl.bukit indah no b8",
+    rt: 18,
+    rw: 6,
+    kec: "cileuyi",
+    kota: "bandung"
+}
+
+// memanggil object dalam object
+console.log(anObject.alamat)
+
