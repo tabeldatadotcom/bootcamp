@@ -21,3 +21,6 @@ out/
 # netbeans project
 bin/
 nb-configurations.xml
+
+# mac
+.DS_Store
