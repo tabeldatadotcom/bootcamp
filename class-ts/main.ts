@@ -1,22 +1,22 @@
-class Hewan{
-    private nama:string = 'kucing anggora';
+class Hewan {
+    private nama: string = 'kucing anggora';
 
-    move(distanceInMeter: number = 0){
+    move(distanceInMeter: number = 0) {
         console.log(`dia bergerak sejauh ${distanceInMeter}m`);
     }
 
-    getNama(): string{
+    getNama(): string {
         return this.nama;
     }
 }
 
-class Kucing extends Hewan{
+class Kucing extends Hewan {
 
-    getNama(): string{
+    getNama(): string {
         return super.getNama().toUpperCase();
     }
-    
-    mencakar(): boolean{
+
+    mencakar(): boolean {
         return true;
     }
 }
