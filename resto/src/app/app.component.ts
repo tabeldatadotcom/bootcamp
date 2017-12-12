@@ -28,6 +28,10 @@ export class AppComponent {
     // console.log(this.myFavorite);
   }
 
+  showMeTheValue(value: number) {
+    this.superheroes.splice(value, 1);
+  }
+  
   myFavorite = 'Iron Man';
   superheroes: Array<string> = [
     'Superman',
@@ -40,8 +44,5 @@ export class AppComponent {
     console.log(value);
   }
 
-  showMeTheValue(value: number) {
-    this.superheroes.splice(value, 1);
-  }
 }
 
