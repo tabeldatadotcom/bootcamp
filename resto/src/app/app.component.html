@@ -1,18 +1,32 @@
-<div>
-    <h1 >My favorite super hero is {{ myFavorite }}</h1>
-    <br/>
-    Daftar super hero:
-    <!-- ini komentar -->
-    <ul>
-        <li *ngFor="let hero of superheroes; let i = index">
-        <button (click)="showMeTheValue(i)">
-            {{ hero }}
-        </button>
-        </li>
-    </ul>
-    <label for="namaSuperhero">Nama Super Hero</label>
-    <input id="namaSuperhero" type="text" 
-        name="myfavorite" [(ngModel)]="myFavorite"/>
-    <br/>
-    <button (click)="showTheValue()">Tambah</button><br/>
+<div class="container">
+    <div class="row">
+        <h1>My favorite super hero is {{ myFavorite }}</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <span id="text-kecil">Daftar super hero:</span>
+            <!-- ini komentar -->
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let hero of superheroes; let i = index">
+                    <a (click)="showMeTheValue(i)">
+                        {{ hero }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            
+            <label for="namaSuperhero" class="text-besar">Nama Super Hero</label>
+            <input class="form-control" id="namaSuperhero" type="text" 
+                name="myfavorite" [(ngModel)]="myFavorite"/>
+            <br/>
+            <button (click)="showTheValue()" class="btn btn-primary btn-lg">
+                <span class="glyphicon glyphicon-pencil"></span>
+                Tambah
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        footer blank
+    </div>
 </div>
