@@ -3,19 +3,41 @@
         <h1>My favorite super hero is {{ myFavorite }}</h1>
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5">
             <span id="text-kecil">Daftar super hero:</span>
             <!-- ini komentar -->
-            <ul class="list-group">
+            <!-- <ul class="list-group">
                 <li class="list-group-item" *ngFor="let hero of superheroes; let i = index">
                     <a (click)="showMeTheValue(i)">
                         {{ hero }}
                     </a>
                 </li>
-            </ul>
+            </ul> -->
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <td>No</td>
+                        <td>Nama</td>
+                        <td>Kekuatan</td>
+                        <td>Hapus</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let hero of superheroes; let i = index">
+                        <td>{{ i+1 }}</td>
+                        <td>{{ hero.nama }}</td>
+                        <td>{{ hero.ability }}</td>
+                        <td> 
+                            <a (click)="showMeTheValue(i)">
+                                <span class="glyphicon glyphicon-trash"></span>
+                                &nbsp; hapus
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="col-md-8">
-            
+        <div class="col-md-4">
             <label for="namaSuperhero" class="text-besar">Nama Super Hero</label>
             <input class="form-control" id="namaSuperhero" type="text" 
                 name="myfavorite" [(ngModel)]="myFavorite"/>
@@ -24,6 +46,12 @@
                 <span class="glyphicon glyphicon-pencil"></span>
                 Tambah
             </button>
+        </div>
+        <div class="col-md-3">
+            <div class="col-md-3">kolom 1</div>
+            <div class="col-md-3">kolom 2</div>
+            <div class="col-md-3">kolom 3</div>
+            <div class="col-md-3">kolom 4</div>
         </div>
     </div>
     <div class="row">

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   showTheValue() {
-    this.superheroes.push(this.myFavorite);
+    this.superheroes.push({nama: this.myFavorite, ability: null});
     // console.log(this.myFavorite);
   }
 
@@ -16,11 +16,10 @@ export class AppComponent {
   }
   
   myFavorite = 'Iron Man';
-  superheroes: Array<string> = [
-    'Superman',
-    'Batman',
-    'Wonder Women',
-    'Iron Man'
+  superheroes: Array<{nama: string, ability: string}> = [
+    {nama: "Superman", ability: "Laser"},
+    {nama: "Wonder Women", ability: "Ngaso"},
+    {nama: "Iron man", ability: "ngudud"}
   ];
 
   onChangeText(value) {
