@@ -4,7 +4,7 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
     selector: '.app-superhero-item',
     template: `
             <td>{{ nomor + 1}}</td>
-            <td>{{ pahlawan.nama }}</td>
+            <td colspan="2">{{ pahlawan.nama }}</td>
             <td>{{ pahlawan.ability }}</td>
             <td>
                 <a (click)="removed(nomor)">

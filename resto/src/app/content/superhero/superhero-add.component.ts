@@ -6,7 +6,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class AddSuperheroComponent {
 
-    @Output() sentData = new EventEmitter<{name: string, ability: string}>();
+    @Output() 
+    sentData = new EventEmitter<{name: string, ability: string}>();
 
     myFavorite: string;
     ability: string;
