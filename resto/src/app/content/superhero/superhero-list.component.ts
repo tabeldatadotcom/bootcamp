@@ -15,7 +15,8 @@ export class SuperheroListComponent {
         this.superheroes.push({nama: value, ability: null});
     }
 
-    showMeTheValue(value: number) {
+    hapusData(value:number){
         this.superheroes.splice(value, 1);
     }
+
 }

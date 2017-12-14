@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SuperheroListComponent } from './content/superhero/superhero-list.component';
 import { AddSuperheroComponent } from './content/superhero/superhero-add.component';
+import { SuperheroItemComponent } from './content/superhero/superhero-item.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AddSuperheroComponent } from './content/superhero/superhero-add.compone
     HeaderComponent,
     FooterComponent,
     SuperheroListComponent,
-    AddSuperheroComponent
+    AddSuperheroComponent,
+    SuperheroItemComponent
   ],
   imports: [
     BrowserModule,
