@@ -3,11 +3,19 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { SuperheroListComponent } from './content/superhero/superhero-list.component';
+import { AddSuperheroComponent } from './content/superhero/add-superhero.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    SuperheroListComponent,
+    AddSuperheroComponent
   ],
   imports: [
     BrowserModule,
