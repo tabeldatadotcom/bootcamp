@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SuperheroListComponent } from './content/superhero/superhero-list.component';
-import { AddSuperheroComponent } from './content/superhero/add-superhero.component';
+import { AddSuperheroComponent } from './content/superhero/superhero-add.component';
 
 
 @NgModule({
