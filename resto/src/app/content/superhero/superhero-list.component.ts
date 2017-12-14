@@ -11,8 +11,8 @@ export class SuperheroListComponent {
         { nama: "Iron man", ability: "ngudud" }
     ];
 
-    addAnItem(value: string){
-        this.superheroes.push({nama: value, ability: null});
+    addAnItem(value: {name: string, ability: string}){
+         this.superheroes.push({nama: value.name, ability: value.ability});
     }
 
     hapusData(value:number){

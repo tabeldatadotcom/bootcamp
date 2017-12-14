@@ -6,12 +6,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class AddSuperheroComponent {
 
-    @Output() sentData = new EventEmitter<string>();
+    @Output() sentData = new EventEmitter<{name: string, ability: string}>();
 
     myFavorite: string;
+    ability: string;
 
     showTheValue() {
-        this.sentData.emit(this.myFavorite);
+        this.sentData.emit(
+            {name: this.myFavorite, ability: this.ability}
+        );
     }
 
 }

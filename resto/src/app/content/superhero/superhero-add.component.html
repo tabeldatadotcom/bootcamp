@@ -1,7 +1,18 @@
-<label for="namaSuperhero" class="text-besar">Nama Super Hero</label>
-<input class="form-control" id="namaSuperhero" type="text" 
-    name="myfavorite" [(ngModel)]="myFavorite"/>
-<br/>
+<div class="form-group">
+    <label for="namaSuperhero" class="text-besar">Nama Super Hero</label>
+    <input class="form-control" id="namaSuperhero" type="text" 
+        name="myfavorite" [(ngModel)]="myFavorite"/>
+</div>
+<div class="form-group">
+    <label for="ability">Kekuatan Super</label>
+    <select id="ability" name="ability" [(ngModel)]="ability">
+        <option value="Terbang">Terbang</option>
+        <option value="Laser">Tembakan Laser</option>
+        <option value="Tonjok">Pukul Maut</option>
+        <option value="Ngilang">Menghilang</option>
+    </select>
+</div>
+
 <button (click)="showTheValue()" class="btn btn-primary btn-lg">
     <span class="glyphicon glyphicon-pencil"></span>
     Tambah
