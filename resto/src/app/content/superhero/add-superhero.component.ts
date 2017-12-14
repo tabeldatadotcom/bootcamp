@@ -11,7 +11,4 @@ export class AddSuperheroComponent {
         // console.log(this.myFavorite);
     }
 
-    showMeTheValue(value: number) {
-        // this.superheroes.splice(value, 1);
-    }
 }
