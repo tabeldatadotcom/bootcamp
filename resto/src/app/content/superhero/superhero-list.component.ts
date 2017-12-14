@@ -11,6 +11,10 @@ export class SuperheroListComponent {
         { nama: "Iron man", ability: "ngudud" }
     ];
 
+    addAnItem(value: string){
+        this.superheroes.push({nama: value, ability: null});
+    }
+
     showMeTheValue(value: number) {
         this.superheroes.splice(value, 1);
     }

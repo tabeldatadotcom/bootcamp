@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
     selector: 'app-add-superhero',
@@ -6,7 +6,12 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class AddSuperheroComponent {
 
+    @Output() sentData = new EventEmitter<string>();
+
+    myFavorite: string;
+
     showTheValue() {
+        this.sentData.emit(this.myFavorite);
     }
 
 }
