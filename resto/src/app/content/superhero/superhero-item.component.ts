@@ -15,11 +15,14 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 })
 export class SuperheroItemComponent{
 
-    @Output() onRemove = new EventEmitter<number>();
+    @Output() 
+    onRemove = new EventEmitter<number>();
 
-    @Input() nomor: number;
+    @Input() 
+    nomor: number;
 
-    @Input() pahlawan: {nama: string, ability: string};
+    @Input() 
+    pahlawan: {nama: string, ability: string};
 
     removed(value: number) {
         this.onRemove.emit(value);

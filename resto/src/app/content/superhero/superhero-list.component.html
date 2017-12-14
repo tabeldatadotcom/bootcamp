@@ -1,16 +1,21 @@
 <div class="col-md-8">
     <span id="text-kecil">Daftar super hero:</span>
     <table class="table table-striped table-hover table-bordered">
-        <tr>
-            <td>No</td>
-            <td>Nama</td>
-            <td>Kekuatan</td>
-            <td>Hapus</td>
-        </tr>
-        <tr class="app-superhero-item" *ngFor="let hero of superheroes; let i = index" 
-            [pahlawan]="hero"
-            [nomor]="i" 
-            (onRemove)="hapusData($event)"></tr>
+        <thead>
+            <tr>
+                <td>No</td>
+                <td>Nama</td>
+                <td>Kekuatan</td>
+                <td>Hapus</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="app-superhero-item" 
+                *ngFor="let hero of superheroes; let i = index" 
+                [pahlawan]="hero"
+                [nomor]="i" 
+                (onRemove)="hapusData($event)"></tr>
+        </tbody>
 
     </table>
 </div>
