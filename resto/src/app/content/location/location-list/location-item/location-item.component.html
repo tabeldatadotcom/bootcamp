@@ -1,0 +1,12 @@
+<td>{{ nomor + 1 }}</td>
+<td>{{ lokasi.streetAddress }}</td>
+<td>{{ lokasi.postalCode }}</td>
+<td>{{ lokasi.city }}</td>
+<td>{{ lokasi.stateProvince }}</td>
+<td>{{ lokasi.country }}</td>
+<td class="text-right">
+  <button class="btn btn-link" (click)="removeData(nomor)">
+    <span class="glyphicon glyphicon-trash"></span>
+    Hapus
+  </button>
+</td>

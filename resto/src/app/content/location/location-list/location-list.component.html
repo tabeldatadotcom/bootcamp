@@ -1,0 +1,25 @@
+<div class="col-md-7">
+  <table class="table table-bordered table-condensed table-striped table-hover">
+    <thead>
+    <tr>
+      <td>No</td>
+      <td>Jalan</td>
+      <td>Kode Pos</td>
+      <td>Kota</td>
+      <td>Provinsi</td>
+      <td>Bagian</td>
+      <td>Hapus</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="app-location-item"
+        *ngFor="let l of locations; let idx = index"
+        [lokasi]="l"
+        [no]="idx" (rejectData)="removedData($event)">
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="col-md-5">
+  <app-location-add (sentData)="recipeData($event)"  ></app-location-add>
+</div>

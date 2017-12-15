@@ -1,0 +1,54 @@
+<div class="form-group">
+  <label for="kode">Kode Lokasi</label>
+  <input type="text" name="kode" id="kode" class="form-control" [(ngModel)]="lokasi.locationId">
+</div>
+<div class="form-group">
+  <label for="jalan">Alamat Rumah</label>
+  <textarea name="jalan" id="jalan" class="form-control" cols="30" rows="5" [(ngModel)]="lokasi.streetAddress"></textarea>
+</div>
+<div class="form-group">
+  <label for="pos">Kode Pos</label>
+  <input type="number" name="pos" id="pos" class="form-control" [(ngModel)]="lokasi.postalCode">
+</div>
+<div class="form-group">
+  <label for="kota">Kota/Kabupaten</label>
+  <select name="kota" id="kota" class="form-control" [(ngModel)]="lokasi.city">
+    <option value="Bandung">Kota Bandung</option>
+    <option value="Kab.Bandung">Kab. Bandung</option>
+    <option value="DKI">DKI Jakarta</option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="jateng">
+    <input type="radio" value="Jawa Tengah" name="provinsi" id="jateng"
+           class="form-control radio" [(ngModel)]="lokasi.stateProvince">
+    Jawa Tengah
+  </label>
+  <label for="jabar">
+    <input type="radio" value="Jawa Barat" name="provinsi" id="jabar"
+           class="form-control radio" [(ngModel)]="lokasi.stateProvince">
+    Jawa Barat
+  </label>
+  <label for="jatim">
+    <input type="radio" value="Jawa Timur" name="provinsi" id="jatim"
+           class="form-control radio" [(ngModel)]="lokasi.stateProvince">
+    Jawa Timur
+  </label>
+  <label for="jkt">
+    <input type="radio" value="Jakarta" name="provinsi" id="jkt"
+           class="form-control radio" [(ngModel)]="lokasi.stateProvince">
+    DKI Jakarta
+  </label>
+</div>
+<div class="form-group">
+  <label for="bagian">Bagian</label>
+  <select name="bagian" id="bagian" class="form-control" [(ngModel)]="lokasi.country">
+    <option *ngFor="let bag of countries" value="{{ bag.countryName }}">{{ bag.countryName }}</option>
+  </select>
+</div>
+<div class="form-group">
+  <button class="btn btn-primary" (click)="submitValue()" >
+    <span class="glyphicon glyphicon-saved"></span>
+    Simpan
+  </button>
+</div>
