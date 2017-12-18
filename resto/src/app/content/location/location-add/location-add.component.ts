@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {LocationService} from '../location.service';
 
 @Component({
   selector: 'app-location-add',
@@ -6,15 +7,6 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./location-add.component.css']
 })
 export class LocationAddComponent implements OnInit {
-
-  @Output() sentData = new EventEmitter<{
-    locationId: string,
-    streetAddress: string,
-    postalCode: string,
-    city: string,
-    stateProvince: string,
-    country: string
-  }>();
 
   countries: { countryId: number, countryName: string }[] = [];
 
@@ -34,7 +26,8 @@ export class LocationAddComponent implements OnInit {
     streetAddress: null
   };
 
-  constructor() {
+  constructor(private locationService: LocationService) {
+
   }
 
   ngOnInit() {
@@ -47,15 +40,6 @@ export class LocationAddComponent implements OnInit {
   }
 
   submitValue() {
-    this.sentData.emit(this.lokasi);
-    this.lokasi = {
-      locationId: null,
-      stateProvince: null,
-      country: null,
-      city: null,
-      postalCode: null,
-      streetAddress: null
-    };
-
+    this.locationService.addAnItem(this.lokasi);
   }
 }
