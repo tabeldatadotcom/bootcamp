@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
@@ -14,11 +15,16 @@ import {DepartmentItemComponent} from './content/department/department-list/depa
 import {LocationListComponent} from './content/location/location-list/location-list.component';
 import {LocationItemComponent} from './content/location/location-list/location-item/location-item.component';
 import {LocationAddComponent} from './content/location/location-add/location-add.component';
-import {RouterModule, Routes} from '@angular/router';
+import {LocationEditComponent} from './content/location/location-edit/location-edit.component';
 
 const routerLink: Routes = [
   {path: 'heroes', component: SuperheroListComponent},
-  {path: 'locations', component: LocationListComponent},
+  {
+    path: 'locations', component: LocationListComponent, children: [
+      {path: 'add', component: LocationAddComponent},
+      {path: 'edit', component: LocationEditComponent},
+    ]
+  },
   {path: 'departments', component: DepartmentListComponent}
 ];
 
@@ -35,7 +41,8 @@ const routerLink: Routes = [
     DepartmentItemComponent,
     LocationListComponent,
     LocationItemComponent,
-    LocationAddComponent
+    LocationAddComponent,
+    LocationEditComponent
   ],
   imports: [
     BrowserModule,
