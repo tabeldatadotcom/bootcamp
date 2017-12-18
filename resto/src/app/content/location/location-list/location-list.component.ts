@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {LocationService} from '../location.service';
+import {Location} from '../location';
 
 @Component({
   selector: 'app-location-list',
@@ -12,12 +13,7 @@ export class LocationListComponent implements OnInit {
 
   }
 
-  locations: {locationId: string,
-    streetAddress: string,
-    postalCode: string,
-    city: string,
-    stateProvince: string,
-    country: string}[] = [];
+  locations: Location[] = [];
 
   ngOnInit() {
     this.locations = this.locationService.locations;

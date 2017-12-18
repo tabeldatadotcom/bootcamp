@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {LocationService} from '../location.service';
+import {Location} from '../location';
 
 @Component({
   selector: 'app-location-add',
@@ -10,21 +11,13 @@ export class LocationAddComponent implements OnInit {
 
   countries: { countryId: number, countryName: string }[] = [];
 
-  lokasi: {
-    locationId: string,
-    streetAddress: string,
-    postalCode: string,
-    city: string,
-    stateProvince: string,
-    country: string
-  } = {
-    locationId: null,
-    stateProvince: null,
-    country: null,
-    city: null,
-    postalCode: null,
-    streetAddress: null
-  };
+  lokasi: Location = new Location(
+    null,
+    null,
+    null,
+    null,
+    null,
+    null);
 
   constructor(private locationService: LocationService) {
 
@@ -41,5 +34,13 @@ export class LocationAddComponent implements OnInit {
 
   submitValue() {
     this.locationService.addAnItem(this.lokasi);
+    this.lokasi = {
+      locationId: null,
+      stateProvince: null,
+      country: null,
+      city: null,
+      postalCode: null,
+      streetAddress: null
+    };
   }
 }

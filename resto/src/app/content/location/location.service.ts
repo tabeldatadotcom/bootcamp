@@ -1,20 +1,13 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Location} from './location';
 
-export class LocationService implements OnInit {
+export class LocationService {
 
   private kotaBandung: {
     countryId: number,
     countryName: string
   } = {countryId: 32, countryName: 'Kota Bandung'};
 
-  private _locations: {
-    locationId: string,
-    streetAddress: string,
-    postalCode: string,
-    city: string,
-    stateProvince: string,
-    country: string
-  }[] = [];
+  private _locations: Location[] = [];
 
   get locations() {
     return this._locations;
@@ -40,23 +33,12 @@ export class LocationService implements OnInit {
 
   }
 
-  addAnItem(location: {
-    locationId: string,
-    streetAddress: string,
-    postalCode: string,
-    city: string,
-    stateProvince: string,
-    country: string
-  }) {
+  addAnItem(location: Location) {
     this._locations.push(location);
   }
 
   removeAnItem(value: number) {
     this._locations.splice(value, 1);
-  }
-
-  ngOnInit() {
-
   }
 
 }
