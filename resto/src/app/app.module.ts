@@ -14,7 +14,13 @@ import {DepartmentItemComponent} from './content/department/department-list/depa
 import {LocationListComponent} from './content/location/location-list/location-list.component';
 import {LocationItemComponent} from './content/location/location-list/location-item/location-item.component';
 import {LocationAddComponent} from './content/location/location-add/location-add.component';
+import {RouterModule, Routes} from '@angular/router';
 
+const routerLink: Routes = [
+  {path: 'heroes', component: SuperheroListComponent},
+  {path: 'locations', component: LocationListComponent},
+  {path: 'departments', component: DepartmentListComponent}
+];
 
 @NgModule({
   declarations: [
@@ -33,7 +39,8 @@ import {LocationAddComponent} from './content/location/location-add/location-add
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routerLink)
   ],
   providers: [],
   bootstrap: [AppComponent]
