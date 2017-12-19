@@ -53,6 +53,31 @@ public class DepartmentDao {
         return list;
     }
 
+    public Department fetchDataDepartment(Integer departmentId) throws SQLException {
+        Connection koneksi = ds.getConnection();
+        String query = "select "
+                + " department_id as kode, "
+                + " department_name as nama, "
+                + " manager_id as kode_manage, "
+                + " location_id as kode_lokasi "
+                + "from departments where department_id = ?";
+        PreparedStatement statement = koneksi.prepareStatement(query);
+        statement.setInt(1, departmentId);
+        ResultSet hasil = statement.executeQuery();
+
+        Department department = new Department();
+        if (hasil.next()) {
+            department.setDepartmentId(hasil.getInt("kode"));
+            department.setDepartmentName(hasil.getString("nama"));
+            department.setManagerId(hasil.getInt("kode_manage"));
+            department.setLocationId(hasil.getInt("kode_lokasi"));
+        }
+        hasil.close();
+        statement.close();
+        koneksi.close();
+        return department;
+    }
+
     public void saveDepartment(Department department) throws SQLException {
         String query = "insert into departments("
                 + " department_id, department_name, manager_id, location_id"
