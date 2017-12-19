@@ -6,6 +6,8 @@
 package com.gmail.maryanto.dimas.resto.restoapi.controller;
 
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,6 +39,14 @@ public class IndexController {
             @RequestParam(name = "aplikasi")String aplikasi) {
         return "{ \"nana\" : \"" + nama + "\", "
                 + "\"aplikasi\": \""+aplikasi+"\""
+                + "}";
+    }
+    
+    @GetMapping(path = "/halo/{nama}")
+    public String haloWorld(
+            @PathVariable("nama") String namaLengkap ){
+        return "{ \"nana\" : \"" + namaLengkap + "\", "
+                + "\"aplikasi\": \"Spring WEB MVC\""
                 + "}";
     }
 
