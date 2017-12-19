@@ -35,6 +35,7 @@ public class IndexController {
     }
 
     /**
+     * menggunakan query param
      * menakses http://localhost:8080/hello?nama_lengkap=dimas%20maryanto&aplikasi=java
      * @param nama
      * @param aplikasi
@@ -53,11 +54,14 @@ public class IndexController {
     }
     
     /**
+     * menggunakan path variable
      * akses http://localhost:8080/halo/dimas%20maryanto
      * @param namaLengkap
      * @return 
      */
-    @GetMapping(path = "/halo/{nama}")
+    @GetMapping(
+            path = "/halo/{nama}", 
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String haloWorld(
             @PathVariable("nama") String namaLengkap ){
         return "{ \"nana\" : \"" + namaLengkap + "\", "
