@@ -20,6 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class IndexController {
 
+    /**
+     * get method mengkases http://localhost:8080/halo
+     * @return 
+     */
     @RequestMapping(
             path = "/halo",
             produces = MediaType.APPLICATION_JSON_VALUE,
@@ -30,6 +34,12 @@ public class IndexController {
                 + "}";
     }
 
+    /**
+     * menakses http://localhost:8080/hello?nama_lengkap=dimas%20maryanto&aplikasi=java
+     * @param nama
+     * @param aplikasi
+     * @return 
+     */
     @RequestMapping(
             path = "/hello",
             produces = MediaType.APPLICATION_JSON_VALUE,
@@ -42,6 +52,11 @@ public class IndexController {
                 + "}";
     }
     
+    /**
+     * akses http://localhost:8080/halo/dimas%20maryanto
+     * @param namaLengkap
+     * @return 
+     */
     @GetMapping(path = "/halo/{nama}")
     public String haloWorld(
             @PathVariable("nama") String namaLengkap ){
