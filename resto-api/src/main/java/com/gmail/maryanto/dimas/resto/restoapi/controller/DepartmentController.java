@@ -87,10 +87,10 @@ public class DepartmentController {
     public String getDepartment(@PathVariable Integer departmentId){
         try {
             repo.removeDepartment(departmentId);
-            return "simpan data berhasil";
+            return "data berhasil dihapus";
         } catch (SQLException ex) {
             Logger.getLogger(DepartmentController.class.getName()).log(Level.SEVERE, null, ex);
-            return "gagal simpan ke database!";
+            return "gagal hapus data!";
         }
     }
     
