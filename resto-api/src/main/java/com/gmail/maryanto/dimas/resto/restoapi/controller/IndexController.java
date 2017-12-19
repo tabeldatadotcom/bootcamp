@@ -74,6 +74,14 @@ public class IndexController {
                 + "}";
     }
 
+    /**
+     * menggunakan post mapping 
+     * akses ke http://localhost:8080/halo
+     * tambahkan di <b>body</b> content type berupa <i>application/json</i>
+     * { "nama": "Dimas Maryanto", "aplikasi" : "Spring Boot" }
+     * @param body
+     * @return 
+     */
     @RequestMapping(
             path = "/halo",
             produces = MediaType.APPLICATION_JSON_VALUE,
