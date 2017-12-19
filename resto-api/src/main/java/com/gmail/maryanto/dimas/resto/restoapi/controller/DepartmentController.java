@@ -66,7 +66,32 @@ public class DepartmentController {
             Logger.getLogger(DepartmentController.class.getName()).log(Level.SEVERE, null, ex);
             return "gagal simpan ke database!";
         }
-        
+    }
+    
+    @PostMapping(
+            path = "/ubah", 
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public String getDepartmentUpdated(@RequestBody Department d){
+        try {
+            repo.updateDepartment(d);
+            return "update data berhasil";
+        } catch (SQLException ex) {
+            Logger.getLogger(DepartmentController.class.getName()).log(Level.SEVERE, null, ex);
+            return "gagal update ke database!";
+        }
+    }
+    
+    @PostMapping(
+            path = "/{departmentId}/removed", 
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public String getDepartment(@PathVariable Integer departmentId){
+        try {
+            repo.removeDepartment(departmentId);
+            return "simpan data berhasil";
+        } catch (SQLException ex) {
+            Logger.getLogger(DepartmentController.class.getName()).log(Level.SEVERE, null, ex);
+            return "gagal simpan ke database!";
+        }
     }
     
 }
