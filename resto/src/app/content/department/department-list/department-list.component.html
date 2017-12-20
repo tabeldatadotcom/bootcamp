@@ -1,18 +1,24 @@
-<table class="table table-bordered" >
-    <thead>
-      <tr>
-        <td>Kode Department</td>
-        <td>Nama Department</td>
-        <td>Kode Manager</td>
-        <td>Kode Lokasi</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let dep of datas">
-        <td>{{ dep.departmentId }}</td>
-        <td>{{ dep.departmentName }}</td>
-        <td>{{ dep.managerId === 0 ? null : dep.managerId}}</td>
-        <td>{{ dep.locationId }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="row">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Kode Department</td>
+                <td>Nama Department</td>
+                <td>Kode Manager</td>
+                <td>Kode Lokasi</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dep of datas">
+                <td>{{ dep.departmentId }}</td>
+                <td>{{ dep.departmentName }}</td>
+                <td>{{ dep.managerId === 0 ? null : dep.managerId}}</td>
+                <td>{{ dep.locationId }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    <app-department-add></app-department-add>
+</div>
