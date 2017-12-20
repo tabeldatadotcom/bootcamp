@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
@@ -48,7 +49,8 @@ const routerLink: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routerLink)
+    RouterModule.forRoot(routerLink),
+    HttpClientModule
   ],
   providers: [LocationService],
   bootstrap: [AppComponent]
