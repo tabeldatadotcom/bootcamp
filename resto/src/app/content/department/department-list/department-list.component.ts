@@ -18,9 +18,23 @@ export class DepartmentListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.loadData();
+  }
+
+  loadData(){
     this._depService.getData().subscribe((resp:Department[]) => {
       this.datas = resp;
     });
+  }
+
+  newDataDepartment(department: Department){
+    this._depService.addNewData(department).subscribe(
+      data => {
+        console.log(data);
+      }, 
+      error => console.log(error)
+    );
+    this.loadData();
   }
 
 }

@@ -1,15 +1,15 @@
 <form (submit)="submitData(departmentForm)" #departmentForm="ngForm">
     <div class="form-group">
         <label for="kodeDepartment">Kode Department</label>
-        <input type="text" name="kodeDepartment" id="kodeDepartment" [(ngModel)]="department.departmentId">
+        <input class="form-control" type="text" name="kodeDepartment" id="kodeDepartment" [(ngModel)]="department.departmentId">
     </div>
     <div class="form-group">'
         <label for="namaDepartment">Nama Dapartment</label>
-        <input type="text" name="namaDepartment" id="namaDepartment" [(ngModel)]="department.departmentName">
+        <input class="form-control" type="text" name="namaDepartment" id="namaDepartment" [(ngModel)]="department.departmentName">
     </div>
     <div class="form-group">
         <label for="managerId">Kode Manager</label>
-        <select name="managerId" id="managerId" [(ngModel)]="department.managerId">
+        <select class="form-control" name="managerId" id="managerId" [(ngModel)]="department.managerId">
             <option value="100">Steven King</option>
             <option value="101">Dimas</option>
             <option value="102">Hadi</option>
@@ -18,7 +18,7 @@
     </div>
     <div class="form-group">
         <label for="locationId">Kode Lokasi</label>
-        <select name="locationId" id="locationId" [(ngModel)]="department.locationId">
+        <select class="form-control" name="locationId" id="locationId" [(ngModel)]="department.locationId">
             <option value="1700">Jabberwocky Rd</option>
             <option value="1400">Calle della Testa</option>
             <option value="2500">Via Cola di Rie</option>

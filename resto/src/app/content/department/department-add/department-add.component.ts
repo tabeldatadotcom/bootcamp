@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { DepartmentService } from '../department.service';
 import { Department } from '../department.model';
 
@@ -9,21 +9,17 @@ import { Department } from '../department.model';
 })
 export class DepartmentAddComponent implements OnInit {
 
+  @Output() submitDataDepartment = new EventEmitter<Department>();
+
   department: Department = new Department(null, null, null, null);
 
-  constructor(private _depService: DepartmentService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
   submitData(event: any){
-    this._depService.addNewData(this.department).subscribe(
-      data => {
-        console.log(data)
-        this.department = new Department(null, null, null, null);
-      }, 
-      error => console.log(error)
-    );
+    this.submitDataDepartment.emit(this.department);
   }
 
 }
