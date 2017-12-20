@@ -18,6 +18,7 @@ import {LocationItemComponent} from './content/location/location-list/location-i
 import {LocationAddComponent} from './content/location/location-add/location-add.component';
 import {LocationEditComponent} from './content/location/location-edit/location-edit.component';
 import {LocationService} from './content/location/location.service';
+import {DepartmentService} from './content/department/department.service';
 
 const routerLink: Routes = [
   {path: 'heroes', component: SuperheroListComponent},
@@ -52,7 +53,7 @@ const routerLink: Routes = [
     RouterModule.forRoot(routerLink),
     HttpClientModule
   ],
-  providers: [LocationService],
+  providers: [LocationService, DepartmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
