@@ -17,7 +17,16 @@
 
     <div class="form-group">'
         <label for="namaDepartment">Nama Dapartment</label>
-        <input class="form-control" type="text" name="namaDepartment" id="namaDepartment" [(ngModel)]="department.departmentName">
+        <input class="form-control" type="text" name="namaDepartment" id="namaDepartment" [(ngModel)]="department.departmentName" required minlength="5" #namaDepartment="ngModel">
+        <div *ngIf="namaDepartment.invalid && (namaDepartment.dirty || namaDepartment.touched)" class="alert alert-danger">
+
+            <div *ngIf="namaDepartment.errors.required">
+                Kode Department tidak boleh kosong
+            </div>
+            <div *ngIf="namaDepartment.errors.minlength">
+                Minimum jumlah karakter harus lebih dari 5
+            </div>
+        </div>
     </div>
     <div class="form-group">
         <label for="managerId">Kode Manager</label>
@@ -30,12 +39,18 @@
     </div>
     <div class="form-group">
         <label for="locationId">Kode Lokasi</label>
-        <select class="form-control" name="locationId" id="locationId" [(ngModel)]="department.locationId">
+        <select class="form-control" name="locationId" id="locationId" [(ngModel)]="department.locationId" required #locationId="ngModel">
             <option value="1700">Jabberwocky Rd</option>
             <option value="1400">Calle della Testa</option>
             <option value="2500">Via Cola di Rie</option>
             <option value="2400">Charade Rd</option>
         </select>
+        <div *ngIf="locationId.invalid && (locationId.dirty || locationId.touched)" class="alert alert-danger">
+
+            <div *ngIf="locationId.errors.required">
+                Kode Department tidak boleh kosong
+            </div>
+        </div>
     </div>
     <div class="form-group">
         <button type="submit" [disabled]="!departmentForm.valid" class="btn btn-primary">Kirim</button>
