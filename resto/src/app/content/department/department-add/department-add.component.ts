@@ -1,6 +1,9 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
 import { DepartmentService } from '../department.service';
 import { Department } from '../department.model';
+
 
 @Component({
   selector: 'app-department-add',
@@ -18,8 +21,9 @@ export class DepartmentAddComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitData(event: any){
-    this.submitDataDepartment.emit(this.department);
+  submitData(event: NgForm){
+    // this.submitDataDepartment.emit(this.department);
+    console.log(event);
   }
 
 }
